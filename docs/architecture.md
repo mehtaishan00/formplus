@@ -78,12 +78,14 @@
 - `created_at`, `updated_at`
 
 ### `submission_locations`
-- `submission_id` (uuid, pk, fk submissions.id)
+- `submission_id` (uuid, fk submissions.id)
+- `field_id` (uuid, fk fields.id)
 - `latitude` (numeric)
 - `longitude` (numeric)
 - `accuracy_m` (numeric)
 - `captured_at` (timestamptz)
 - `source` (browser/manual)
+- Primary key: (`submission_id`, `field_id`) to allow multiple location answers per submission
 
 ### `submission_cells` (optional for fast sheet ops)
 - `submission_id` (uuid, fk)
